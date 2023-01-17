@@ -15,11 +15,14 @@ function App() {
 
   const removeSinhVien = (_sv) => {
     const tmpSinhVien = [...listSV];
-    const svIndex = tmpSinhVien.indexOf(sv => sv.id ===  _sv.id);
+    console.log(_sv);
+    const svIndex = tmpSinhVien.indexOf(_sv);
+    console.log(svIndex)
     if (svIndex > -1) {
       tmpSinhVien.splice(svIndex, 1);
       setListSV(tmpSinhVien);
     }
+    console.log(listSV);
   }
   
   return (
@@ -28,7 +31,7 @@ function App() {
         <AddStudent addSinhVien={(e) => addSinhVien(e)}/>
       </div>
       <div className='tableStudent'>
-        <TableStudent listSV = {listSV} setListSV = {setListSV}/>
+        <TableStudent listSV = {listSV} removeSinhVien = {removeSinhVien}/>
       </div>
     </div>
   );

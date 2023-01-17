@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-export default function TableStudent({listSV,setListSV}) {
+export default function TableStudent({listSV,removeSinhVien}) {
     const [scoreMax, setScoreMax] = useState(false);
     const listeningBtnMark = () => {
         setScoreMax(!scoreMax);
@@ -31,7 +31,7 @@ export default function TableStudent({listSV,setListSV}) {
                             <td style={(scoreMax && item.score >= 5) ? {color: 'red'} : {}}>{item.firstName}</td>
                             <td style={(scoreMax && item.score >= 5) ? {color: 'red'} : {}}>{item.lastName}</td>
                             <td>{item.score}</td>
-                            <td><Button variant="danger" onClick={() => listeningBtnRemove(item.id)}>Xóa</Button>{' '}</td>
+                            <td><Button variant="danger" onClick={() => removeSinhVien(item)}>Xóa</Button>{' '}</td>
                         </tr>
                     )
                 })
